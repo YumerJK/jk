@@ -7,120 +7,66 @@ const contact = {
 };
 
 const services = [
-  {
-    tr: "Ev ve Çelik Kapılar",
-    en: "Home & Security Doors",
-    textTr: "Giriş kapısı, oda kapısı ve özel ölçü modern kapı üretimi.",
-    textEn: "Entrance, interior, and made-to-measure modern door production.",
-  },
-  {
-    tr: "Mutfak Mobilyaları",
-    en: "Kitchen Furniture",
-    textTr: "Şık, dayanıklı ve kullanışlı mutfak dolapları ve tezgah çözümleri.",
-    textEn: "Stylish, durable, and practical kitchen cabinet and counter solutions.",
-  },
-  {
-    tr: "Dolap ve Mobilya",
-    en: "Cabinets & Furniture",
-    textTr: "Gardırop, vestiyer, TV ünitesi ve iş yerine özel mobilyalar.",
-    textEn: "Wardrobes, cloakrooms, TV units, and custom business furniture.",
-  },
+  ["Özel Kapılar", "Custom Doors", "Giriş kapısı, iç kapı, lake ve ahşap kapılarda özel ölçü üretim."],
+  ["Mutfak Dolapları", "Kitchen Cabinets", "Modern, kullanışlı, dayanıklı ve mekâna özel mutfak çözümleri."],
+  ["Mobilya & Dolap", "Furniture & Cabinets", "Gardırop, vestiyer, TV ünitesi, banyo dolabı ve iş yeri mobilyası."],
 ];
 
-const stats = [
-  ["15+", "Yıl Tecrübe", "Years Experience"],
-  ["300+", "Tamamlanan İş", "Completed Projects"],
-  ["100%", "Özel Ölçü", "Custom Made"],
-];
+const gallery = ["Mat lake mutfak", "Doğal ahşap kapı", "Gömme gardırop", "TV ünitesi"];
 
 export default function Home() {
   return (
     <main>
       <section className="hero" id="home">
         <nav className="nav" aria-label="Main navigation">
-          <a className="brand" href="#home" aria-label="Usta Kapı Mobilya ana sayfa">
-            <span>UK</span> Usta Kapı & Mobilya
-          </a>
-          <div className="navLinks">
-            <a href="#services">Hizmetler</a>
-            <a href="#work">İşlerimiz</a>
-            <a href="#contact">İletişim</a>
-          </div>
+          <a className="brand" href="#home" aria-label="Usta Kapı Mobilya ana sayfa"><span>UK</span><b>Usta Kapı</b></a>
+          <div className="navLinks"><a href="#services">Hizmetler</a><a href="#portfolio">Portföy</a><a href="#contact">İletişim</a></div>
         </nav>
 
         <div className="heroGrid">
           <div className="heroCopy revealUp">
-            <p className="eyebrow">TR / EN • Modern carpentry solutions</p>
-            <h1>Kapıdan mutfağa, yaşam alanınıza özel usta işi mobilya.</h1>
-            <p className="lead">
-              Ev kapıları, mutfak mobilyaları, dolaplar ve özel ölçü ahşap işleri için modern, sağlam ve estetik çözümler üretiyoruz.
-            </p>
-            <p className="lead english">
-              We craft modern custom doors, kitchen furniture, wardrobes, and fitted woodwork with clean details and reliable workmanship.
-            </p>
-            <div className="actions">
-              <a className="primary" href={contact.whatsapp}>WhatsApp ile teklif al</a>
-              <a className="secondary" href="#services">Hizmetleri gör</a>
-            </div>
+            <p className="eyebrow">Premium marangozluk • TR / EN</p>
+            <h1>Kapı, mutfak ve mobilyada modern usta işi.</h1>
+            <p className="lead">Eviniz veya iş yeriniz için ölçüye özel kapılar, mutfak dolapları, gardıroplar ve ahşap mobilyalar tasarlayıp üretiyoruz.</p>
+            <p className="lead english">Modern custom doors, kitchens, wardrobes, and furniture crafted with clean design and precise installation.</p>
+            <div className="actions"><a className="primary" href={contact.whatsapp}>WhatsApp’tan teklif al</a><a className="secondary" href="#portfolio">İşleri incele</a></div>
+            <div className="trust"><span>Ücretsiz keşif</span><span>3D tasarım desteği</span><span>Temiz montaj</span></div>
           </div>
 
-          <div className="showcase" aria-label="Decorative modern furniture preview">
-            <div className="card doorCard"><span>Modern Doors</span></div>
-            <div className="card kitchenCard"><span>Kitchen Cabinets</span></div>
-            <div className="floatingBadge">Özel Ölçü / Custom Made</div>
+          <div className="visual" aria-label="Modern kapı ve mobilya görsel alanı">
+            <div className="glassCard mainPiece"><span>Özel Ölçü Kapı</span></div>
+            <div className="glassCard sidePiece"><span>Mutfak Dolabı</span></div>
+            <div className="orbit orbitOne" /><div className="orbit orbitTwo" />
           </div>
         </div>
       </section>
 
       <section className="stats" aria-label="Company highlights">
-        {stats.map(([value, tr, en]) => (
-          <div className="stat" key={value}>
-            <strong>{value}</strong>
-            <span>{tr}</span>
-            <small>{en}</small>
-          </div>
-        ))}
+        <div><strong>15+</strong><span>Yıl Tecrübe</span><small>Years Experience</small></div>
+        <div><strong>300+</strong><span>Tamamlanan Proje</span><small>Completed Projects</small></div>
+        <div><strong>7/24</strong><span>Hızlı İletişim</span><small>Fast Contact</small></div>
       </section>
 
       <section className="section" id="services">
-        <div className="sectionHead revealUp">
-          <p className="eyebrow">Hizmetler / Services</p>
-          <h2>Kapı, mobilya ve mutfak dolaplarında komple çözüm.</h2>
-        </div>
+        <div className="sectionHead"><p className="eyebrow">Hizmetler / Services</p><h2>İhtiyacınıza göre tasarlanan net, şık ve dayanıklı çözümler.</h2></div>
         <div className="serviceGrid">
-          {services.map((service, index) => (
-            <article className="serviceCard revealUp" style={{ animationDelay: `${index * 120}ms` }} key={service.tr}>
-              <div className="icon">{index + 1}</div>
-              <h3>{service.tr}</h3>
-              <h4>{service.en}</h4>
-              <p>{service.textTr}</p>
-              <p className="muted">{service.textEn}</p>
-            </article>
-          ))}
+          {services.map(([tr, en, text], index) => <article className="serviceCard" key={tr}><span>0{index + 1}</span><h3>{tr}</h3><h4>{en}</h4><p>{text}</p></article>)}
         </div>
       </section>
 
-      <section className="work" id="work">
-        <div className="workCopy revealUp">
-          <p className="eyebrow">Çalışma Şeklimiz / Our Process</p>
-          <h2>Ölçü alır, tasarlar, üretir ve temiz montaj yaparız.</h2>
-          <p>
-            Her proje için ihtiyaca göre malzeme seçimi, renk danışmanlığı ve kullanışlı planlama sunuyoruz. İş yerleri ve evler için modern görünüm, uzun ömürlü işçilik.
-          </p>
+      <section className="portfolio" id="portfolio">
+        <div className="sectionHead"><p className="eyebrow">Portföy / Portfolio</p><h2>Ahşap dokusu, modern çizgiler ve kullanışlı detaylar.</h2></div>
+        <div className="gallery">
+          {gallery.map((item, index) => <div className={`galleryItem item${index + 1}`} key={item}><span>{item}</span></div>)}
         </div>
-        <div className="process">
-          {['Keşif', 'Tasarım', 'Üretim', 'Montaj'].map((step) => (
-            <div className="processStep" key={step}>{step}</div>
-          ))}
-        </div>
+      </section>
+
+      <section className="process" id="work">
+        {['Keşif ve ölçü', 'Tasarım ve renk', 'Üretim', 'Montaj ve teslim'].map((step) => <div className="processStep" key={step}>{step}</div>)}
       </section>
 
       <section className="contact" id="contact">
-        <div>
-          <p className="eyebrow">İletişim / Contact</p>
-          <h2>Projeniz için hızlıca ulaşın.</h2>
-          <p>WhatsApp, Instagram, telefon veya konum üzerinden iletişime geçebilirsiniz.</p>
-        </div>
+        <div><p className="eyebrow">İletişim / Contact</p><h2>Projenizi konuşalım.</h2><p>WhatsApp, Instagram, telefon veya konum üzerinden hemen ulaşabilirsiniz.</p></div>
         <div className="contactCards">
           <a href={contact.whatsapp}>WhatsApp <strong>{contact.phone}</strong></a>
           <a href={`tel:${contact.phone.replaceAll(' ', '')}`}>Telefon <strong>{contact.phone}</strong></a>
@@ -128,6 +74,7 @@ export default function Home() {
           <a href={contact.maps}>Konum <strong>{contact.location}</strong></a>
         </div>
       </section>
+      <a className="stickyWhatsApp" href={contact.whatsapp}>WhatsApp</a>
     </main>
   );
 }
