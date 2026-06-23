@@ -10,3 +10,14 @@ npm run dev
 ```
 
 Open http://localhost:3000 to view the site.
+
+
+## GitHub Pages
+
+This repository also includes `index.html` and `site.css` at the repository root so GitHub Pages can serve the finished static site immediately at `/jk/` when Pages is configured to publish from the branch root.
+
+For a Next.js static export, build with:
+
+```bash
+GITHUB_PAGES=true npm run build
+```
